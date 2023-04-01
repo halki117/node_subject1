@@ -1,0 +1,28 @@
+/* ヘッダー部分 */
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+header ul{
+  display: flex;
+}
+
+header li{
+  list-style: none;
+  line-height: 59px;
+  margin-left: 15px;
+}
+
+
+/* フォーム部分 */
+.form-content{
+  width: 80%;
+  margin: 0 auto;
+  
+}
+
+.form-content label{
+  min-width: 300px;
+}
