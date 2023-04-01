@@ -5,6 +5,9 @@ const app = express();
 // 第一引数：view engineを指定。 第二引数：使用するテンプレートを指定。
 app.set('view engine','ejs');
 
+// cssを反映させるため
+app.use(express.static('public'))
+
 //ログイン画面
 app.get("/login", (req, res) => {
   res.render("login");
