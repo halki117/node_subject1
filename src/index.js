@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
+// DBへの接続
 const mysql = require('mysql');
 
 const con = mysql.createConnection({
