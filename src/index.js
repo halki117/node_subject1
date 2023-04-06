@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
 
+// postの値を受け取るために以下を追記(body-parserインストール済)
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended:true}));
+// app.use(bodyParser.json());
+
 // DBへの接続
 const mysql = require('mysql');
 
@@ -31,6 +36,10 @@ app.get("/login", (req, res) => {
 //ユーザー登録画面
 app.get("/register", (req, res) => {
   res.render("register");
+});
+
+app.post("/signup", (req, res) => {
+  console.log(req.body);
 });
 
 app.listen(8080, ()=>{});
