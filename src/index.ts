@@ -1,35 +1,46 @@
-"use strict";
+
 const registerController = require("./controllers/registerController");
+
 const express = require("express");
 const app = express();
+
 // postの値を受け取るために以下を追記(body-parserインストール済)
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended:true}));
 // app.use(bodyParser.json());
+
 // DBへの接続
 const mysql = require('mysql');
+
 const con = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: ''
+  host: '127.0.0.1',
+  user: 'root',
+  password: ''
 });
-con.connect(function (err) {
-    if (err)
-        throw err;
-    console.log('Connected');
+
+con.connect(function(err: any) {
+  if (err) throw err;
+  console.log('Connected');
 });
+
+
 // ejsファイルをexpressに読み込む
 // 第一引数：view engineを指定。 第二引数：使用するテンプレートを指定。
-app.set('view engine', 'ejs');
+app.set('view engine','ejs');
+
 // cssを反映させるため
-app.use(express.static('public'));
+app.use(express.static('public'))
+
 //ログイン画面
-app.get("/login", (req, res) => {
-    res.render("login");
+app.get("/login", (req: any, res: any) => {
+  res.render("login");
 });
+
 //ユーザー登録画面
-app.get("/register", (req, res) => {
-    res.render("register");
+app.get("/register", (req: any, res: any) => {
+  res.render("register");
 });
+
 app.post("/signup", registerController.signup);
-app.listen(8080, () => { });
+
+app.listen(8080, ()=>{});
