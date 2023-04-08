@@ -23,6 +23,10 @@ con.connect(function (err) {
 app.set('view engine', 'ejs');
 // cssを反映させるため
 app.use(express.static('public'));
+//ホーム画面
+app.get("/", (req, res) => {
+    res.render("home");
+});
 //ログイン画面
 app.get("/login", (req, res) => {
     res.render("login");

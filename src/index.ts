@@ -31,6 +31,11 @@ app.set('view engine','ejs');
 // cssを反映させるため
 app.use(express.static('public'))
 
+//ホーム画面
+app.get("/", (req: any, res: any) => {
+  res.render("home");
+});
+
 //ログイン画面
 app.get("/login", (req: any, res: any) => {
   res.render("login");

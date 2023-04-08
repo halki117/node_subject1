@@ -14,6 +14,7 @@ exports.signup = (req, res, next) => {
             console.log(user);
         });
     });
+    res.redirect('/');
     // User.findAll().then(users => {
     //   res.send(users);
     // });
