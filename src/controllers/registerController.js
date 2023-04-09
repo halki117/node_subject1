@@ -1,7 +1,14 @@
 "use strict";
 const bcrypt = require('bcrypt');
 const User = require('../../models').User;
+const { validationResult } = require('express-validator');
 exports.signup = (req, res, next) => {
+    // バリデーションの結果にエラーがあるかのチェック
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.render('register.ejs', { errors: errors.array() });
+        return;
+    }
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.pass;
@@ -15,10 +22,10 @@ exports.signup = (req, res, next) => {
         });
     });
     res.redirect('/');
-    // User.findAll().then(users => {
-    //   res.send(users);
-    // });
 };
+// User.findAll().then(users => {
+//   res.send(users);
+// });
 // exports.index = (req: any, res: any, next: any) => {
 //   res.send('index');
 // };

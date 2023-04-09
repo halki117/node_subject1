@@ -9,6 +9,9 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended:true}));
 // app.use(bodyParser.json());
 
+const registerValidator = require('./validators/registerValidator');
+
+
 // DBへの接続
 const mysql = require('mysql');
 
@@ -46,6 +49,6 @@ app.get("/register", (req: any, res: any) => {
   res.render("register");
 });
 
-app.post("/signup", registerController.signup);
+app.post("/signup",registerValidator, registerController.signup);
 
 app.listen(8080, ()=>{});

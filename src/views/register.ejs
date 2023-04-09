@@ -2,6 +2,17 @@
 
   <div class="form-content">
     <h2>ユーザー登録画面</h2>
+    
+    <% if (typeof errors !== 'undefined') { %>
+      <div>
+          <ul>
+              <% for (const error of errors) { %>
+              <li><%= error.param %>:<%= error.msg %></li>
+              <% } %>
+          </ul>
+      </div>
+    <% } %>
+
     <form action="/signup" method="post">
       <div>
         <label for="name">Name</label>

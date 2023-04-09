@@ -6,6 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
+const registerValidator = require('./validators/registerValidator');
 // DBへの接続
 const mysql = require('mysql');
 const con = mysql.createConnection({
@@ -35,5 +36,5 @@ app.get("/login", (req, res) => {
 app.get("/register", (req, res) => {
     res.render("register");
 });
-app.post("/signup", registerController.signup);
+app.post("/signup", registerValidator, registerController.signup);
 app.listen(8080, () => { });
