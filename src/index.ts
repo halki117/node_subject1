@@ -52,7 +52,7 @@ app.use(express.static('public'))
 //ホーム画面
 app.get("/", (req: any, res: any) => {
   console.log(req.session.name);
-  res.render("home");
+  res.render("home",{login_user: req.session.name});
 });
 
 //ログイン画面
