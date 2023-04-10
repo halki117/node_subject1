@@ -20,18 +20,5 @@ exports.login = (req, res, next) => {
         })
             .catch((err) => console.error(err.message));
         res.redirect('/');
-        // if(compared){
-        //   req.session.name = user.name;
-        //   req.session.email = user.email;
-        //   console.log(session);
-        //   res.redirect('/');
-        // } else {
-        //   console.log('ログイン失敗');
-        // }
     });
-    // if(req.session.name){
-    //   console.log(req.session.name);
-    // } else {
-    //   req.session.name = name;
-    // }
 };
