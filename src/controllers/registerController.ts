@@ -1,9 +1,7 @@
-const bcrypt = require('bcrypt');
-const User = require('../../models').User;
-
-const { validationResult } = require('express-validator');
-
 exports.signup = (req: any, res: any, next: any) => {
+  const bcrypt = require('bcrypt');
+  const { validationResult } = require('express-validator');
+  const User = require('../../models').User;
 
   // バリデーションの結果にエラーがあるかのチェック
   const errors = validationResult(req);
@@ -29,14 +27,3 @@ exports.signup = (req: any, res: any, next: any) => {
   res.redirect('/');
 
 };
-
-// User.findAll().then(users => {
-
-//   res.send(users);
-
-// });
-
-
-// exports.index = (req: any, res: any, next: any) => {
-//   res.send('index');
-// };
