@@ -9,6 +9,7 @@ exports.login = (req: any, res: any, next: any) => {
 
   User.findOne({ 
   where: { 
+    name: name,
     email: email
   } }).then((user: any) => {
 

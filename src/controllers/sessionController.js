@@ -8,7 +8,7 @@ exports.login = (req, res, next) => {
     const pass = req.body.pass;
     User.findOne({
         where: {
-            email: email
+            name: name,
         }
     }).then((user) => {
         bcrypt.compare(pass, user.password).then((res) => {
