@@ -29,3 +29,9 @@ exports.login = (req: any, res: any, next: any) => {
   });
 
 };
+
+
+exports.logout = (req: any, res: any, next: any) => {
+  req.session.destroy();
+  res.redirect('/');
+}

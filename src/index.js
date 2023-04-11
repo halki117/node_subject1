@@ -40,7 +40,7 @@ app.set('view engine', 'ejs');
 // cssを反映させるため
 app.use(express.static('public'));
 //ホーム画面
-app.get("/", (req, res) => {
+app.get("/", (req, res, next) => {
     console.log(req.session.name);
     res.render("home", { login_user: req.session.name });
 });
@@ -55,4 +55,6 @@ app.get("/register", (req, res) => {
 app.post("/signup", registerValidator, registerController.signup);
 // ログイン
 app.post("/login", sessionController.login);
+// ログアウト
+app.get("/logout", sessionController.logout);
 app.listen(8080, () => { });

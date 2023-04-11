@@ -50,7 +50,7 @@ app.set('view engine','ejs');
 app.use(express.static('public'))
 
 //ホーム画面
-app.get("/", (req: any, res: any) => {
+app.get("/", (req: any, res: any, next: any) => {
   console.log(req.session.name);
   res.render("home",{login_user: req.session.name});
 });
@@ -69,6 +69,9 @@ app.post("/signup",registerValidator, registerController.signup);
 
 // ログイン
 app.post("/login",sessionController.login);
+
+// ログアウト
+app.get("/logout",sessionController.logout);
 
 
 app.listen(8080, ()=>{});
