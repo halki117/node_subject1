@@ -15,7 +15,6 @@ exports.login = (req, res, next) => {
             console.log(res); // return true
             req.session.name = user.name;
             req.session.email = user.email;
-            console.log(req.session);
             req.session.save();
         })
             .catch((err) => console.error(err.message));

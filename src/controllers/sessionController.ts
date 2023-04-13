@@ -18,8 +18,6 @@ exports.login = (req: any, res: any, next: any) => {
       req.session.name = user.name;
       req.session.email = user.email;
 
-      console.log(req.session);
-
       req.session.save();
     })
     .catch((err: any) => console.error(err.message));
