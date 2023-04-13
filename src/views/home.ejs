@@ -1,0 +1,11 @@
+<%- include('common/header',{login_user: login_user}); %>
+
+<div class="form-content">
+  <h2>home画面</h2>
+  <% if (typeof login_user !== 'undefined') { %>
+    <p>You are logged in!</p>
+  <% }%>
+</div>
+
+
+<%- include('common/footer'); %>
