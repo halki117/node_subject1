@@ -10,12 +10,20 @@
   <body>
     <header>
       <h1>Node課題</h1>
-      <ul>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-        <li>
-          <a href="/register">Register</a>
-        </li>
-      </ul>
+      <% if (typeof login_user !== 'undefined') { %>
+        <ul>
+          <!-- ログインユーザー名表示 -->
+          <li><%= login_user %></li>
+          <li><a href="/logout">ログアウト</a></li>
+        </ul>
+      <% } else { %>
+          <ul>
+            <li>
+              <a href="/login">Login</a>
+            </li>
+            <li>
+              <a href="/register">Register</a>
+            </li>
+          </ul>
+      <% } %>  
     </header>
